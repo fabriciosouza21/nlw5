@@ -1,13 +1,12 @@
 import express, { response } from "express";
 
+import "./database";
+
+import { routes } from "./routes"
 
 const app = express();
+app.use(express.json())
+app.use(routes)
 
-app.get("/", (require, response) => {
-    return response.json({ menssage: "nlw 05" });
-})
-app.post("/users", (require, response) => {
-    return response.json({ menssage: "usuario salvo" })
-})
 
 app.listen(3333, () => console.log("server is running"));
